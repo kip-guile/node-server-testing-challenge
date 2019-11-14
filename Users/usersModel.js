@@ -8,8 +8,8 @@ module.exports = {
   findById,
 };
 
-async function insert(hobbit) {
-  await db('users').insert(hobbit);
+async function insert(users) {
+  await db('users').insert(users);
 }
 
 // function insert(hobbit) {
@@ -21,7 +21,9 @@ async function update(id, changes) {
 }
 
 function remove(id) {
-  return null;
+  return db('users')
+  .where({id})
+  .del()
 }
 
 function getAll() {
